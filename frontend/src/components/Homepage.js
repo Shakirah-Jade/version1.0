@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // import Autosuggest from 'react-autosuggest';
 
-function Homepage({ onClose }) {
+function Homepage({ onClose, onShare  }) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [selectedFileName, setSelectedFileName] = useState("");
   const [notification, setNotification] = useState("");
@@ -43,9 +43,18 @@ const handleShare = (recipient, content) => {
 
    // Implement sharing logic here, e.g., send notifications to the recipient.
    if (recipient && content) {
+    
     // Simulate sharing success for demonstration purposes
     toast.success(`Shared with: ${recipient}`);
-    onClose(); // Close the modal after sharing
+
+      // Simulate sharing success for demonstration purposes
+      const sharedData = {
+        recipient,
+        content,
+        file: selectedFile, // Include the selected file
+      };
+      onShare(sharedData);
+      onClose(); // Close the modal after sharing
   } else {
     // Show an error message if recipient or content is missing
     toast.error('Please enter both recipient and content.');
@@ -55,7 +64,6 @@ const handleShare = (recipient, content) => {
 toast.success(`Shared with: ${recipient}`, {
   position: toast.POSITION.BOTTOM_RIGHT,
 });
-
 
 // const [value, setValue] = useState('');
 //   const [suggestions, setSuggestions] = useState([]);
@@ -103,10 +111,12 @@ toast.success(`Shared with: ${recipient}`, {
           {showModal && (
             <div className="modal">
               <div className="modal-content">
-              <span className="close" onClose={closeModal} onShare={handleShare}>
+              {/* <span className="close" onClose={closeModal} onShare={handleShare}>
               &times;
-             </span>
-             
+             </span> */}
+                  <span className="close" onClick={onClose}>
+                &times;
+              </span>
                 <h2>Share Content</h2>
                 <input
                   type="text"
@@ -114,11 +124,28 @@ toast.success(`Shared with: ${recipient}`, {
                   value={recipient}
                   onChange={(e) => setRecipient(e.target.value)}
                 />
-                    <textarea
+                    {/* <textarea
               placeholder="Enter content to share"
               value={content}
               onChange={(e) => setContent(e.target.value)}
-            ></textarea>
+            ></textarea> */}
+            <textarea
+          placeholder="Enter content to share"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        ></textarea>
+             <div className="attach-upload">
+             <label htmlFor="fileInput">Attach File:</label>
+        <input
+          type="file"
+          id="fileInput"
+          accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png"
+          onChange={handleFileChange}
+        />
+        {selectedFile && (
+          <p>Selected file: {selectedFile.name}</p>
+        )}
+          </div>
                 <button onClick={handleShare}>Share</button>
                 <button onClick={closeModal}>Cancel</button>
               </div>

@@ -46,6 +46,27 @@ h1 {
   margin-bottom: 10px;
 }
 
+#attach-upload {
+ display: none;
+}
+
+.attach-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: lighter;
+  margin-top: 20px;
+
+}
+
+.attach-file-upload:hover {
+  cursor: pointer;
+}
+
 .custom-file-upload {
   border: 1px solid #ccc;
   display: inline-block;
