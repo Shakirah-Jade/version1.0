@@ -8,6 +8,7 @@ import DocumentForm from "../components/DocumentForm";
 import Sidebar from "../components/sideBar";
 import Homepage from "../components/Homepage";
 import FileUpload from "../components/FileUpload";
+import SharePage from "./sharepage";
 
 const Home = () => {
   const { documents, dispatch } = useDocumentsContext();
@@ -52,6 +53,7 @@ const Home = () => {
       </div>
       {activeMenuItem === "menu-item upload" && <FileUpload />}
       {activeMenuItem === "menu-item home" && <Homepage />}
+      {activeMenuItem === "menu-item share" && <SharePage />}
       {/* {documents.length > 0 ? (
         <div className="documents">
           {documents &&

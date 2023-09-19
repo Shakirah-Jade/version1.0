@@ -105,6 +105,13 @@ const Sidebar = ({ activeMenuItem, onMenuItemClick }) => {
           >
             <i className="fas fa-upload"></i> Upload File
           </li></div>
+          <div className="menu-item">
+          <li
+            className={activeMenuItem === "menu-item share" ? "active" : ""}
+            onClick={() => onMenuItemClick("menu-item share")}
+          >
+            <i className="fas fa-share"></i> Share
+          </li></div>
           </div>
           <li className="menu-item">
             <i className="fa-solid fa-file-lines"></i> MyFiles

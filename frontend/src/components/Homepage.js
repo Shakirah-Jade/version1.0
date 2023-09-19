@@ -106,14 +106,14 @@ toast.success(`Shared with: ${recipient}`, {
           </button>
           {notification && <p className="notification">{notification}</p>}
          {/* /////////////////// share component /////////////////////////////// */}
-          <div className="share">  
+          {/* <div className="share">  
           <button onClick={openModal}>Share</button>
           {showModal && (
             <div className="modal">
               <div className="modal-content">
-              {/* <span className="close" onClose={closeModal} onShare={handleShare}>
+              <span className="close" onClose={closeModal} onShare={handleShare}>
               &times;
-             </span> */}
+             </span>
                   <span className="close" onClick={onClose}>
                 &times;
               </span>
@@ -124,11 +124,11 @@ toast.success(`Shared with: ${recipient}`, {
                   value={recipient}
                   onChange={(e) => setRecipient(e.target.value)}
                 />
-                    {/* <textarea
+                    <textarea
               placeholder="Enter content to share"
               value={content}
               onChange={(e) => setContent(e.target.value)}
-            ></textarea> */}
+            ></textarea>
             <textarea
           placeholder="Enter content to share"
           value={content}
@@ -153,7 +153,7 @@ toast.success(`Shared with: ${recipient}`, {
             
           )}
           <ToastContainer limit={1} />
-        </div>
+        </div> */}
         
         </div>
       </div>

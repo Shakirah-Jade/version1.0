@@ -15,6 +15,7 @@
   height: 100%;
   background-color: var(--primary1);
   transition: left 0.3s ease-in-out;
+  
 }
 
 /* Open sidebar */
